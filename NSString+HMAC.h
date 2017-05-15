@@ -10,13 +10,13 @@
 
 @interface NSString (HMAC)
 
-@property (nonatomic, strong) NSString * MD5String;
+@property (nonatomic, readonly) NSString * MD5String;
 
-@property (nonatomic, strong) NSString * SHA1String;
+@property (nonatomic, readonly) NSString * SHA1String;
 
-@property (nonatomic, strong) NSString * SHA256String;
+@property (nonatomic, readonly) NSString * SHA256String;
 
-@property (nonatomic, strong) NSString * SHA512String;
+@property (nonatomic, readonly) NSString * SHA512String;
 
 
 /**

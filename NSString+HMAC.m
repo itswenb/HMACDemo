@@ -26,6 +26,7 @@
 - (NSString *)MD5String{
     return [self encryptWithLength:CC_MD5_DIGEST_LENGTH andWithWay:kCCHmacAlgMD5];
 }
+
 /**
  获得字符的SHA1加密后的字符串
  
