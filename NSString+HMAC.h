@@ -7,10 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CommonCrypto/CommonHMAC.h>
+
+
+typedef enum {
+    ENCRYPT_MD5 = 1,
+    ENCRYPT_SHA1,
+    ENCRYPT_SHA256,
+    ENCRYPT_SHA512,
+} ENCRYPT_TYPE;
 
 @interface NSString (HMAC)
 
 @property (nonatomic, readonly) NSString * MD5String;
+
+/**
+   传入加密方式和加密的Key,如果key为空则直接
+ */
+@property (nonatomic ,readonly) NSString* (^encrypt)(ENCRYPT_TYPE,NSString*);
 
 @property (nonatomic, readonly) NSString * SHA1String;
 

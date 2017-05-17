@@ -8,15 +8,55 @@
 
 #import "NSString+HMAC.h"
 
-#import <CommonCrypto/CommonHMAC.h>
-
-
 @implementation NSString (HMAC)
 @dynamic MD5String;
 @dynamic SHA1String;
 @dynamic SHA256String;
 @dynamic SHA512String;
+@dynamic encrypt;
 
+
+/**
+  传入加密方式和加密的Key,如果key为空则直接
+
+*/
+- (NSString* (^)(ENCRYPT_TYPE,NSString*))run{
+    return ^NSString*(ENCRYPT_TYPE type,NSString* key){
+        NSString * str = nil;
+        if (key == nil) {
+            switch (type) {
+                case 1:
+                    str = [self MD5String];
+                    break;
+                case 2:
+                    str = [self SHA1String];
+                    break;
+                case 3:
+                    str = [self SHA256String];
+                    break;
+                case 4:
+                    str = [self SHA512String];
+                    break;
+            }
+        }else{
+            switch (type) {
+                case 1:
+                    str = [self HMACMD5StringWithKey:key];
+                    break;
+                case 2:
+                    str = [self HMACSHA512StringWithKey:key];
+                    break;
+                case 3:
+                    str = [self HMACSHA256StringWithKey:key];
+                    break;
+                case 4:
+                    str = [self HMACSHA512StringWithKey:key];
+                    break;
+            }
+        }
+        return str;
+    };
+}
 
 /**
  获得字符的MD5加密后的字符串
