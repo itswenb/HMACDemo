@@ -27,4 +27,13 @@ HMAC加密的DEMO
     NSString * encrypted9 = [NSString HMACSHA1:pwd key:key];
     NSString * encrypted10 = [NSString HMACSHA256:pwd key:key];
     NSString * encrypted11 = [NSString HMACSHA512:pwd key:key];
+    
+    NSString * encrypted12 =  pwd.encrypt(ENCRYPT_MD5, nil);
+    NSString * encrypted13 =  pwd.encrypt(ENCRYPT_SHA1, nil);
+    NSString * encrypted14 =  pwd.encrypt(ENCRYPT_SHA256, nil);
+    NSString * encrypted15 =  pwd.encrypt(ENCRYPT_SHA512, nil);
+    NSString * encrypted16 =  pwd.encrypt(ENCRYPT_MD5, key);
+    NSString * encrypted17 =  pwd.encrypt(ENCRYPT_SHA1, key);
+    NSString * encrypted18 =  pwd.encrypt(ENCRYPT_SHA256, key);
+    NSString * encrypted19 =  pwd.encrypt(ENCRYPT_SHA512, key);
  ```
