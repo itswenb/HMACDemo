@@ -20,7 +20,7 @@
   传入加密方式和加密的Key,如果key为空则直接
 
 */
-- (NSString* (^)(ENCRYPT_TYPE,NSString*))run{
+- (NSString* (^)(ENCRYPT_TYPE,NSString*))encrpty{
     return ^NSString*(ENCRYPT_TYPE type,NSString* key){
         NSString * str = nil;
         if (key == nil) {
